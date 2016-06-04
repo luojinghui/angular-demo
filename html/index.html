@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <link rel="stylesheet" href="../css/index.css"/>
-<body>
+<body ng-app="app">
 
 <ul>
     <!--<li>-->
@@ -66,25 +66,61 @@
 
         <!--</div>-->
     <!--</li>-->
+    <!--<li>-->
+        <!--<div ng-app="" ng-init="names=['Jani','Hege','Kai']">-->
+            <!--<p>使用 ng-repeat 来循环数组</p>-->
+            <!--<ul>-->
+                <!--<li ng-repeat="x in names">-->
+                    <!--{{ x }}-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<div class="old-price">原价：-->
+            <!--<input type="number" ng-model="oldPrice" ng-init="oldPrice=6"/>-->
+        <!--</div>-->
+        <!--<div class="">打折：-->
+            <!--<input type="number" ng-model="newPrice" ng-init="newPrice=6"/>-->
+        <!--</div>-->
+        <!--<div>总价：-->
+            <!--{{oldPrice * newPrice || 0}}-->
+        <!--</div>-->
+    <!--</li>-->
+
+    <!--<li>-->
+        <!--<h1>angularJs 指令</h1>-->
+        <!--<table ng-controller="userList">-->
+            <!--<tbody>-->
+            <!--<tr ng-repeat="x in userObj">-->
+                <!--<td>{{x.name}}</td>-->
+                <!--<td>{{x.age}}</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+        <!--<script>-->
+            <!--var app = angular.module('app', []);-->
+
+            <!--app.controller('userList', function($scope) {-->
+                <!--console.log($scope);-->
+                <!--$scope.userObj = [{name: "张三", age: 12},{name: "李四", age: 13},{name: "王五", age: 14},{name: "赵六", age: 16}];-->
+                <!--$scope.userObj = {name: "张三", age: 12, sex: "男"};-->
+            <!--});-->
+        <!--</script>-->
+    <!--</li>-->
     <li>
-        <div ng-app="" ng-init="names=['Jani','Hege','Kai']">
-            <p>使用 ng-repeat 来循环数组</p>
-            <ul>
-                <li ng-repeat="x in names">
-                    {{ x }}
-                </li>
-            </ul>
+        <div ng-app="app" ng-controller="conName">
+            名字：<input type="text" ng-model="person.name"/>
+            性别：<input type="text" ng-model="person.sex"/>
         </div>
     </li>
 </ul>
 </body>
 <script src="../js/angular.js"></script>
 <script>
-    var app = angular.module('myApp', []);
-    
-    app.controller('myCtrl', function($scope) {
-        $scope.firstName= "John";
-        $scope.lastName= "Doe";
-    });
+    var app = angular.module("app",[]);
+    app.controller("conName", function($scope) {
+        $scope.person = {name: "张三", sex: "girl"};
+    })
 </script>
 </html>
