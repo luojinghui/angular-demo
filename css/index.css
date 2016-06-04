@@ -9,3 +9,13 @@ h3 {
 h1 {
     color: red;
 }
+li {
+    list-style: none;
+}
+table {
+    border-collapse:collapse;
+}
+tr , td {
+    border: 1px solid #eee;
+    padding: 10px 20px;
+}
