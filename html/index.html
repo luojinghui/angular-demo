@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="../css/index.css"/>
+<body>
+
+<ul>
+    <!--<li>-->
+        <!--<h3>文本输入指令： ng-modal="yourname",绑定到一个1叫yourname的变量中</h3>-->
+        <!--Your name: <input type="text" ng-model="yourname" placeholder="World">&nbsp;&nbsp;&nbsp;Hello {{yourname || "world"}}-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<h3>ng-init 指令初始化 AngularJS 应用程序变量。</h3>-->
+        <!--<div ng-init="name='John'">-->
+            <!--<p>姓名为 <span ng-bind="name"></span></p>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<h3>AngularJS 表达式</h3>-->
+        <!--<p>我的第一个表达式：{{9 + 9}}</p>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<h1>AngularJS 应用</h1>-->
+        <!--<h3>AngularJS 模块（Module） 定义了 AngularJS 应用。</h3>-->
+        <!--<h3>AngularJS 控制器（Controller） 用于控制 AngularJS 应用。</h3>-->
+        <!--<h3>ng-app指令定义了应用, ng-controller 定义了控制器。</h3>-->
+
+        <!--<div ng-app="myApp" ng-controller="myCtrl">-->
+
+            <!--名: <input type="text" ng-model="firstName"><br>-->
+            <!--姓: <input type="text" ng-model="lastName"><br>-->
+            <!--<br>-->
+            <!--姓名: {{firstName + " " + lastName}}-->
+
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<h1>AngularJS 数字</h1>-->
+        <!--<div ng-app ng-init="quantity=5;cost=5">-->
+            <!--<p>总价： {{ quantity * cost }}</p>-->
+        <!--</div>-->
+        <!--<h3>使用 ng-bind 的相同实例：</h3>-->
+        <!--<div ng-app="" ng-init="quantity=1;cost=5">-->
+            <!--<p>总价： <span ng-bind="quantity * cost"></span></p>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<div ng-app="" ng-init="points=[1,15,19,2,40]">-->
+
+            <!--<p>第三个值为 {{ points[2] }}</p>-->
+
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<div ng-app="" ng-init="quantity=1;price=5">-->
+
+            <!--<h2>价格计算器</h2>-->
+
+            <!--数量： <input type="number"	ng-model="quantity">-->
+            <!--价格： <input type="number" ng-model="price">-->
+
+            <!--<p><b>总价：</b> {{ quantity * price }}</p>-->
+
+        <!--</div>-->
+    <!--</li>-->
+    <li>
+        <div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+            <p>使用 ng-repeat 来循环数组</p>
+            <ul>
+                <li ng-repeat="x in names">
+                    {{ x }}
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
+</body>
+<script src="../js/angular.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName= "John";
+        $scope.lastName= "Doe";
+    });
+</script>
+</html>
