@@ -195,10 +195,11 @@
     app.directive("userinfo", function() {
         var dirUser = {
             restrict: "A",
-            template: "<div> name：{{userInfo.name}}<br/>age：{{userInfo.phone}}<br/>email: {{userInfo.email}}</div>",
+            template: "<div> name：{{userInfo.name}}<br/>age：{{userInfo.phone}}<br/>email: {{userInfo.email}}<br/></div>",
             replace: false,
+            transclude: false,
             link: function(scope) {
-                scope.userInfo.name = "请输入内容";
+                scope.userInfo.name = "...";
             }
         };
         return dirUser;
