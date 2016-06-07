@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="user">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+    <div class="container" ng-controller="users">
+        <div class="panel">
+            <div class="panel-default panel-heading">
+                <h1>指令下link的操作</h1>
+            </div>
+            <div class="panel-body">
+                <h2>请填写信息</h2>
+                <div class="write-info">
+                    <span>input your name：</span>
+                    <input type="text" ng-model="userInfo.name"/>
+                    <br/><br/>
+                    <sapn>input you phone：</sapn>
+                    <input type="text" ng-model="userInfo.phone"/>
+                    <br/><br/>
+                    <span>input your email：</span>
+                    <input type="text" ng-model="userInfo.email"/>
+                    <br/><br/>
+                </div>
+                <h2>用户信息：</h2>
+                <div class="showinfo">
+                    <span>user info：</span>
+                    <div userinfo>
+                        <div>暂时没有数据</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/angular.js"></script>
+<script>
+    var app = angular.module("user", []);
+    app.controller("users", function($scope) {
+        console.log($scope);
+        $scope.userInfo = {
+            name: "",
+            phone: "",
+            email: ""
+        }
+    });
+    app.directive("userinfo", function() {
+        var dirUser = {
+            restrict: "A",
+            template: "<div> name：{{userInfo.name}}<br/>age：{{userInfo.phone}}<br/>email: {{userInfo.email}}</div>",
+            replace: false,
+            link: function(scope) {
+                scope.userInfo.name = "请输入内容";
+            }
+        };
+        return dirUser;
+    })
+</script>
+</html>

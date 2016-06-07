@@ -19,3 +19,7 @@ tr , td {
     border: 1px solid #eee;
     padding: 10px 20px;
 }
+pre {
+    font-size: 18px;
+    line-height: 32px;
+}

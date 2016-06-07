@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="user">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
 </head>
 <link rel="stylesheet" href="../css/index.css"/>
-<body ng-app="app">
-
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<body>
+<div class="container">
 <ul>
     <!--<li>-->
         <!--<h3>文本输入指令： ng-modal="yourname",绑定到一个1叫yourname的变量中</h3>-->
@@ -108,19 +109,99 @@
             <!--});-->
         <!--</script>-->
     <!--</li>-->
+
+    <!--<li>-->
+        <!--<h1>ng-model 指令</h1>-->
+        <!--<div ng-app="app" ng-controller="conName">-->
+            <!--名字：<input type="text" ng-model="person.name"/>-->
+            <!--性别：<input type="text" ng-model="person.sex"/>-->
+            <!--<div>-->
+                <!--你拿到了：{{person.name}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<script>-->
+            <!--var app = angular.module("app",[]);-->
+            <!--app.controller("conName", function($scope) {-->
+                <!--$scope.person = {name: "张三", sex: "girl"};-->
+            <!--})-->
+        <!--</script>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<form ng-app="app" name="form">-->
+            <!--Email:-->
+            <!--<input type="email" name="myAddress" ng-model="text">-->
+            <!--<span ng-show="form.myAddress.$error.email">不是一个合法的邮箱地址</span>-->
+        <!--</form>-->
+    <!--</li>-->
+
+    <!--<li>-->
+        <!--<div ng-app="myApp">-->
+            <!--<div run></div>-->
+            <!--<run></run>-->
+            <!--<script>-->
+                <!--var app = angular.module("myApp", []).directive("run", function() {-->
+                    <!--return {-->
+                        <!--restrict : 'M',-->
+                        <!--template : "<h1>自定义指令!</h1>"-->
+                    <!--};-->
+                <!--});-->
+            <!--</script>-->
+        <!--</div>-->
+    <!--</li>-->
     <li>
-        <div ng-app="app" ng-controller="conName">
-            名字：<input type="text" ng-model="person.name"/>
-            性别：<input type="text" ng-model="person.sex"/>
+        <div class="container" ng-controller="users">
+            <div class="panel">
+                <div class="panel-default panel-heading">
+                    <h1>指令下的compile和link的操作</h1>
+                </div>
+                <div class="panel-body">
+                    <h2>请填写信息</h2>
+                    <div class="write-info">
+                        <span>input your name：</span>
+                        <input type="text" ng-model="userInfo.name"/>
+                        <br/><br/>
+                        <sapn>input you phone：</sapn>
+                        <input type="text" ng-model="userInfo.phone"/>
+                        <br/><br/>
+                        <span>input your email：</span>
+                        <input type="text" ng-model="userInfo.email"/>
+                        <br/><br/>
+                    </div>
+                    <h2>用户信息：</h2>
+                    <div class="showinfo">
+                        <span>user info：</span>
+                        <div userinfo>
+                            <div>暂时没有数据</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </li>
 </ul>
+</div>
 </body>
 <script src="../js/angular.js"></script>
 <script>
-    var app = angular.module("app",[]);
-    app.controller("conName", function($scope) {
-        $scope.person = {name: "张三", sex: "girl"};
+    var app = angular.module("user", []);
+    app.controller("users", function($scope) {
+        console.log($scope);
+        $scope.userInfo = {
+            name: "",
+            phone: "",
+            email: ""
+        }
+    });
+    app.directive("userinfo", function() {
+        var dirUser = {
+            restrict: "A",
+            template: "<div> name：{{userInfo.name}}<br/>age：{{userInfo.phone}}<br/>email: {{userInfo.email}}</div>",
+            replace: false,
+            link: function(scope) {
+                scope.userInfo.name = "请输入内容";
+            }
+        };
+        return dirUser;
     })
 </script>
 </html>
