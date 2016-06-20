@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body ng-app="app" ng-controller="select">
+<select ng-model="selected">
+    <option value="" ng-repeat="v in obj">{{v.option}}</option>
+</select>
+</body>
+<script src="../js/angular.js"></script>
+<script>
+    var app = angular.module('app', []).controller('select', function($scope) {
+        $scope.obj = [{option: 123}, {option: 234}, {option: 345}, {option: 456}];
+//        $scope.selected=456;//id的值，区分类型
+        $scope.selected=$scope.obj[2].option;//如果想要第一个值
+//        $scope.obj = [123,234,345,456];
+    });
+</script>
+</html>

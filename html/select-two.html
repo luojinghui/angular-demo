@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<body>
+<div ng-app="app" ng-controller="global">
+    <select ng-model="ihg" ng-options="ihg.text for ihg in g">
+        <option value="">-- 省份 --</option>
+    </select>
+    <select ng-show="ihg.nat" ng-model="nat" ng-options="nat.text for nat in ihg.nat">
+        <option value="">-- 城市 --</option>
+    </select>
+    <select ng-show="nat.cities" ng-model="city" ng-options="city.text for city in nat.cities">
+        <option value="">-- 区域 --</option>
+    </select>
+</div>
+</body>
+<script src="../js/angular.js"></script>
+<script>
+    var app=angular.module("app",[]);
+    app.controller("global",['$scope',function($scope){
+        $scope.g=[
+            {text:"亚洲",nat:[
+                {text:"中国",cities:[{text:"北京"}]},
+                {text:"巴林",cities:[]},
+                {text:"韩国",cities:[{text:"首尔"}]},
+                {text:"黎巴嫩",cities:[]},
+                {text:"东帝汶",cities:[]},
+                {text:"尼泊尔",cities:[]},
+                {text:"泰国",cities:[{text:"曼谷"}]},
+                {text:"巴基斯坦",cities:[{text:"伊斯兰堡"}]}
+            ]},
+            {text:"北京",nat:[
+                {text:"朝阳区"},
+                {text:"海淀区"},
+                {text:"东城区"},
+                {text:"八通区"},
+                {text:"东帝汶"}
+            ]},
+            {text:"陕西省",nat:[
+                {text:"西安市",cities:[{text: "雁塔区"},{text: "高新区"}]},
+                {text:"咸阳市"}
+            ]},
+            {text:"北美洲"},
+            {text:"南美洲"},
+            {text:"非洲"},
+            {text:"大洋洲"},
+            {text:"南极洲"}
+        ]
+    }]);
+</script>
+</html>
