@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    select {outline: none;}
+</style>
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<body>
+<div ng-app="app" ng-controller="global">
+    {{select.name}} is selected: {{select.activityLike.option}}
+    <br/>
+    <!--<select class="" ng-model="select.activityLike" ng-options="l as l.option for l in activities"></select>-->
+    <select class="" ng-model="select.activityLike" ng-options="l as l.option for l in activities"></select>
+</div>
+</body>
+<script src="../js/angular.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("global", function($scope) {
+        $scope.select = {
+            name: "cc",
+            activityLike: {
+                id: 3,
+                option: 'pear',
+                type: 'fruit'
+            }
+        };
+        $scope.activities =[
+            {id: 1, option: 'apple', type: 'fruit'},
+            {id: 2, option: 'banana', type: 'fruit'},
+            {id: 3, option: 'pear', type: 'fruit'},
+            {id: 4, option: 'tomato', type: 'vegetables'},
+            {id: 5, option: 'celery', type: 'vegetables'}
+        ];
+        for(var i in $scope.activities) {
+            if($scope.select.activityLike.id === $scope.activities[i].id) {
+                $scope.select.activityLike = $scope.activities[i];
+                break;
+            }
+        }
+    });
+</script>
+</html>
