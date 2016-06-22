@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/chosen.css"/>
+</head>
+<style>
+    .dd-selected {
+        overflow: hidden;
+        display: block;
+        padding: 7px 10px!important;
+        font-weight: 400!important;
+    }
+    .chosen-single:foucs {
+        outline: none;
+    }
+</style>
+<body>
+<div id="divNoImage"></div>
+<br/><br/>
+<select data-placeholder="选择部门" id="123" class="chzn-rtl"">
+    <option value="">1312</option>
+    <option value="">324</option>
+    <option value="">345</option>
+    <option value="">456</option>
+    <option value="">234</option>
+    <option value="">567</option>
+    <option value="">789</option>
+    <option value="">456</option>
+</select>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/select.js"></script>
+<script src="../js/chosen.jquery.js"></script>
+<script>
+    $(function() {
+        $('#123').chosen({width: '200px', max_selected_options: 4});
+
+        $('#123').on('change', function(evt, params) {
+            console.log(evt);
+        });
+    });
+    var ddBasic = [
+        { text: "Facebook", value: 1 },
+        { text: "Twitter", value: 2 },
+        { text: "LinkedIn", value: 3 },
+        { text: "Foursquare", value: 4 }
+    ];
+
+    $('#divNoImage').ddslick({
+        data: ddBasic,
+        selectText: "选择城市"
+    });
+</script>
+</html>

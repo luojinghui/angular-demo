@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .li {
+        list-style: none;
+        display: inline-block;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 20px;
+        cursor: pointer;
+        border-top: 2px solid transparent;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        position: relative;
+    }
+    .li:hover {
+        border-top: 2px solid #ff0000;
+        border-left: 1px solid #cecece;
+        border-right: 1px solid #cecece;
+        border-bottom: 1px solid transparent;
+    }
+    .li-one:hover .hide-nav, .li-two:hover .hide-nav, .li-three:hover .hide-nav, .li-four:hover .hide-nav {
+        display: block;
+    }
+    .li-one:hover .hide-line, .li-two:hover .hide-line, .li-three:hover .hide-line, .li-four:hover .hide-line {
+        display: block;
+        z-index: 999;
+    }
+    .ul-header {
+        margin: 0;
+        background: #efefef;
+    }
+    .hide-nav {
+        display: none;
+        position: absolute;
+        top: 35px;
+        background: -webkit-linear-gradient(-90deg, #efefef,#efefef,#f9f9f9 ,#fdfdfd);
+        padding: 10px 10px;
+        min-width: 299px;
+        left: -1px;
+        border-left: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+        border-right: 1px solid #cecece;
+        border-top: 1px solid #cecece;
+    }
+    .hide-line {
+        display: none;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        background: #efefef;
+        height: 2px;
+    }
+    .nav-ul li{
+        list-style-type: disc;
+    }
+    .nav-ul li a {
+        text-decoration: none;
+    }
+    .nav-ul li a:hover {
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <header>
+        <ul class="ul-header">
+            <li class="li li-one">
+                <span>首页</span>
+                <span class="hide-line"></span>
+                <div class="hide-nav">
+                    <div>
+                        <ul class="nav-ul">
+                            <li>
+                                <a href="">123123</a>
+                            </li>
+                            <li>
+                                <a href="">123123</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="li  li-two">
+                <span>新闻</span>
+                <span class="hide-line"></span>
+                <div class="hide-nav">
+                    <div>
+                        <ul class="nav-ul">
+                            <li>
+                                <a href="">345</a>
+                            </li>
+                            <li>
+                                <a href="">2342</a>
+                            </li>
+                            <li>
+                                <a href="">连接</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="li  li-three">
+                <span>公告</span>
+                <span class="hide-line"></span>
+                <div class="hide-nav">
+                    <div>
+                        <ul class="nav-ul">
+                            <li>
+                                <a href="">234</a>
+                            </li>
+                            <li>
+                                <a href="">23</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="li li-four">
+                <span>说什么好</span>
+                <span class="hide-line"></span>
+                <div class="hide-nav">
+                    <div>
+                        <ul class="nav-ul">
+                            <li>
+                                <a href="">234</a>
+                            </li>
+                            <li>
+                                <a href="">345</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </header>
+</body>
+</html>

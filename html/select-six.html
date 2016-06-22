@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/chosen.css"/>
+</head>
+<style>
+    select {outline: none;}
+</style>
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<body>
+<div ng-app="app" ng-controller="global">
+    <!--{{select.name}} is selected: {{select.activityLikeId.option}}-->
+    <!--{{select.activityLikeId.option}}-->
+    <br/>
+    <!--<select class="" ng-model="select.activityLike" ng-options="l as l.option for l in activities"></select>-->
+    <!--<select class="" ng-model="select.activityLikeId" ng-options="l as l.id group by l.type for l in activities track by l.option"></select>-->
+    <select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
+</div>
+</body>
+<script src="../js/angular.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/chosen.jquery.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("global", function($scope) {
+        $scope.items = [
+            {
+            id: 1,
+            label: 'aLabel',
+                selected: false,
+            subItem: { name: 'aSubItem' }
+        }, {
+            id: 2,
+            label: 'bLabel',
+            selected: true,
+            subItem: { name: 'bSubItem' }
+        }, {
+                id: 3,
+                label: 'cLabel',
+                selected: false,
+                subItem: { name: 'cSubItem' }
+            }
+        ];
+        var sl = $scope.items;
+
+        for(var i = 0; i < sl.length; i ++) {
+            if(sl[i].selected) {
+                console.log($scope);
+                $scope.selected = sl[0].label;
+                break;
+            }
+        }
+    });
+//        $('select').chosen({width: "200px"});
+</script>
+</html>

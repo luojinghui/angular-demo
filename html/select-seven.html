@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/chosen.css"/>
+</head>
+<style>
+    select {outline: none;}
+</style>
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<body>
+<div ng-app="app" ng-controller="global">
+    <select ng-model="select.activityLikeId" ng-options="value as value group by key for (key, value) in activities"></select>
+</div>
+</body>
+<script src="../js/angular.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/chosen.jquery.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("global", function($scope) {
+        $scope.select = {
+            name: "cc",
+            activityLikeId: 5
+        };
+        $scope.activities = {id: 5, option: 'celery', type: 'vegetables'};
+
+        if($scope.select.activityLikeId === $scope.activities.id) {
+            console.log(123);
+            $scope.select.activityLikeId = $scope.activities.option;
+        }
+    });
+</script>
+</html>

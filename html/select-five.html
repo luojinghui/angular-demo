@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="../css/chosen.css"/>
 </head>
 <style>
     select {outline: none;}
@@ -10,24 +11,23 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css"/>
 <body>
 <div ng-app="app" ng-controller="global">
-    {{select.name}} is selected: {{select.activityLike.option}}
+    <!--{{select.name}} is selected: {{select.activityLikeId.option}}-->
+    <!--{{select.activityLikeId.option}}-->
     <br/>
-    <!--<select class="" ng-model="select.activityLike" ng-options="l as l.option for l in activities"></select>-->
-    <select class="" ng-model="select.activityLike" ng-options="l as l.option for l in activities"></select>
+    <!--<select class="" ng-model="select.activityLikeId" ng-options="l as l.option for l in activities"></select>-->
+    <select class="" ng-model="select.activityLikeId" ng-options="l as l.option group by l.type for l in activities track by l.option"></select>
+    <!--<select class="" ng-model="select.activityLikeId" ng-options="l.option + ':很好吃' for l in activities"></select>-->
 </div>
 </body>
 <script src="../js/angular.js"></script>
 <script src="../js/jquery.min.js"></script>
+<script src="../js/chosen.jquery.js"></script>
 <script>
     var app = angular.module("app", []);
     app.controller("global", function($scope) {
         $scope.select = {
             name: "cc",
-            activityLike: {
-                id: 3,
-                option: 'pear',
-                type: 'fruit'
-            }
+            activityLikeId: 3
         };
         $scope.activities =[
             {id: 1, option: 'apple', type: 'fruit'},
@@ -37,8 +37,8 @@
             {id: 5, option: 'celery', type: 'vegetables'}
         ];
         for(var i in $scope.activities) {
-            if($scope.select.activityLike.id === $scope.activities[i].id) {
-                $scope.select.activityLike = $scope.activities[i];
+            if($scope.select.activityLikeId === $scope.activities[i].id) {
+                $scope.select.activityLikeId = $scope.activities[i];
                 break;
             }
         }
