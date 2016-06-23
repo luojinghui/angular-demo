@@ -16,7 +16,7 @@
     <br/>
     <!--<select class="" ng-model="select.activityLike" ng-options="l as l.option for l in activities"></select>-->
     <!--<select class="" ng-model="select.activityLikeId" ng-options="l as l.id group by l.type for l in activities track by l.option"></select>-->
-    <select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
+    <select ng-options="item as item.subItem.name for item in items track by item.id" ng-model="selected"></select>
 </div>
 </body>
 <script src="../js/angular.js"></script>
@@ -47,8 +47,9 @@
 
         for(var i = 0; i < sl.length; i ++) {
             if(sl[i].selected) {
-                console.log($scope);
-                $scope.selected = sl[0].label;
+                console.log(213);
+                $scope.selected = sl[i];
+                console.log(sl[i]);
                 break;
             }
         }
