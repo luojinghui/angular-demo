@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <style>
+        input {outline: none}
+        body {margin: 20px;}
+    </style>
+</head>
+<body>
+    <div ng-app="newApp" ng-controller="hideOrShow">
+        <div class="btn btn-success" ng-click="hideNav()">隐藏</div>
+        <div ng-hide="hs">
+            <br/>
+            <br/>
+            <span>名：</span>
+            <input type="text" ng-model="name"/>
+            <br/>
+            <br/>
+            <span>姓：</span>
+            <input type="text" ng-model="xing"/>
+            <br/>
+            <br/>
+            <p>姓名：{{name}} {{xing}}</p>
+        </div>
+    </div>
+</body>
+<script src="../js/angular.js"></script>
+<script>
+    var app = angular.module('newApp',[]);
+    app.controller('hideOrShow', function($scope) {
+        $scope.hs = false;
+        $scope.hideNav = function() {
+            $scope.hs = !$scope.hs;
+        }
+    })
+</script>
+</html>
